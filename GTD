@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+require "lib/gtd"        
+
+GTD.connect
+GTD.process_command(ARGV)
