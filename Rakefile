@@ -1,16 +1,24 @@
+$:.unshift 'lib' #includes the lib folder in the executing path
+
 require "rubygems" 
 require "rake" 
 require "rake/testtask"
 require 'active_record'
 require 'yaml'
+require 'spec/rake/spectask'
 
-task :default => [:test]
 
-Rake::TestTask.new do |test|
-  test.libs << "test" 
-  test.test_files = Dir[ "test/test_*.rb" ]
-  test.verbose = true
+
+task :default => [:specs]
+
+desc "Run all specs"
+Spec::Rake::SpecTask.new('spec') do |t|
+  t.spec_files = FileList['spec/gtd/*spec.rb']
+  t.spec_opts = ['--options', 'spec/spec.opts']
 end
+
+
+
 namespace :db do
   
   desc "Migrate the database through scripts in db/migrate. Target specific version with VERSION=x"
