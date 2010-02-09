@@ -1,0 +1,8 @@
+Welcome to the official GTD refactoring base project
+
+About
+=======
+ GTD_Refacto is a project that is **intentionally** coded with
+ out any thought to design or idiomatic structure. It is 
+ intended to be utilized as a teaching vehicle on how to
+ demonstrate basic refactoring principles in Ruby.
