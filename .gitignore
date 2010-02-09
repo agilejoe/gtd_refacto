@@ -1,2 +1,3 @@
 data/gtd.db
-database.log
+database.rake
+log/*

@@ -36,13 +36,16 @@ module GTD
         add_task(args[0])     
       when "t" 
         t = Task.find(:all)
-        t.empty? ? puts("Looks like you have nothing to do.\n") : tasks_write_to_screen(t)
+        t.empty? ? puts("Go drink a beer! You're all done!\n") : tasks_write_to_screen(t)
       when "p"
         p = Project.find(:all)
-        p.empty? ? puts("Looks like you have nothing to do.\n") : projects_write_to_screen(p)
+        p.empty? ? puts("I don't see any projects.\n") : projects_write_to_screen(p)
       when "c"
         c = Context.find(:all)
         c.empty? ? puts("Looks like you have nothing to do.\n") : context_write_to_screen(c)
+      when "?"
+        puts"task desciption that is going to get things done [Project] (Context)"
+        puts"EXAMPLE: \"+ pick up bread at the store [Home](Grocery)\""
       else
         puts "#{cmd} command unrecognized?" 
     end
@@ -103,14 +106,6 @@ module GTD
 
   def parse_context(string)
     string =~ /\[(.*)\]/ && $1.strip
-  end
-
-  def dump(file=nil)
-    content = Models::Task.dump
-    if file
-      File.open(file,"w") { |f| f.puts(content) }
-    end
-    return content
   end
 
 end

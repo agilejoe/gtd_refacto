@@ -31,7 +31,7 @@ namespace :db do
   desc "Created the connection to the database"
   task :environment do
     ActiveRecord::Base.establish_connection(YAML::load(File.open('config/database.yml')))
-    ActiveRecord::Base.logger = Logger.new(File.open('database.log', 'a'))
+    ActiveRecord::Base.logger = Logger.new(File.open('log/database.log', 'a'))
   end
 
   desc 'Create the database defined in config/database.yml for the current RAILS_ENV'

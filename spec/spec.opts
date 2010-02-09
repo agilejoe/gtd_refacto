@@ -2,10 +2,5 @@
 --format
 progress
 --format 
-failing_examples:previous_failures.txt
---example
-previous_failures.txt
---reverse
---timeout
-20
---diff
+failing_examples:log/previous_failures.txt
+
